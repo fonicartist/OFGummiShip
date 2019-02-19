@@ -1,8 +1,13 @@
 #pragma once
 
 #include "ofMain.h"
+#include "Ship.h"
 
 class ofApp : public ofBaseApp{
+	private:
+		enum gameState {title, inGame, gameover} _gameState;
+
+		Ship *GummiShip;
 
 	public:
 		void setup();

@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+# Other
+*.ilk
+*.pdb
+
+# Ignore bin folder but not data
+*/bin/*
+!*/bin/data/
