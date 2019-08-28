@@ -1,24 +1,30 @@
 #pragma once
 
 #include "ofMain.h"
+#include "Emitter.h"
 
-class Ship {
+class Ship : public Emitter {
 	private:
 		// Openframeworks variables
 		ofImage sprite;
 		ofImage exhaustSprite;
-		glm::vec2 position;
-		glm::vec2 velocity;
+		ofVec2f position;
+		ofVec2f velocity;
 
 		// Regular variables
 		enum Movement { left, straight, right } _movement;
 
 		float speed = 10.0f;
 		int exhaustCounter;
-		bool holdingLeft = false,
-			 holdingRight = false;
+		bool firing = false,
+			 holdingLeft = false,
+			 holdingRight = false,
+			 holdingUp = false,
+			 holdingDown = false,
+			 clicked = false;
 
 		// Private methods
+		void checkMovement();
 		void exhaustAnim();
 		void loadAssets();
 
@@ -32,6 +38,8 @@ class Ship {
 		void inputDown(int);
 		void inputReleased(int);
 		void update();
+		void move(ofVec2f);
+		void reset();
 
 		float X() {
 			return position.x;
@@ -44,6 +52,9 @@ class Ship {
 		}
 		void setY(float val) {
 			position.y = val;
+		}
+		void changeClick() {
+			clicked = !clicked;
 		}
 
 };

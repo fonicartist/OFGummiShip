@@ -38,3 +38,7 @@
 # Ignore bin folder but not data
 */bin/*
 !*/bin/data/
+
+# Ignore Visual Studio Files
+obj/*
+.vs/*
